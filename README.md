@@ -63,8 +63,8 @@ class Feature1AndFeature2Mediator :
 Подписка на события для координаторов реализуется классами `CoordinatorRegistration`
 и `InternalCoordinatorRegistration`
 
-Передача аргументов при навигации осуществляется функциями `newInstance` и `constructParams`, для
-отправки и получаения соответственно
+Передача аргументов при навигации осуществляется наследниками класса `ScreenParams` с помощью
+функций расширений `newInstance` и `constructParams`, для отправки и получения соответственно
 
 ```kotlin
 data class FeatureScreen(
@@ -77,5 +77,9 @@ data class FeatureScreen(
 ```
 
 ```kotlin
+//через SavedStateHandle внутри ViewModel
 val params = savedStateHandle.constructParams<FeatureScreen>()
+
+//через arguments внутри Fragment
+val params = arguments.constructParams<FeatureScreen>()
 ```

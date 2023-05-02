@@ -4,7 +4,7 @@ import android.os.Bundle
 import java.io.Serializable
 
 abstract class ScreenParams(private vararg val arguments: Any?) {
-    fun toArgumentsBundle(): Bundle {
+    open fun toArgumentsBundle(): Bundle {
         val constructor = this::class.constructors.firstOrNull() ?: return Bundle()
         val parameters = constructor.parameters.mapNotNull { parameter ->
             parameter.name
