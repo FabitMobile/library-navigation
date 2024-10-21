@@ -23,7 +23,7 @@ class Feature1Coordinator(
 ) : Coordinator<Feature1Action> {
     override fun receive(action: Action) {}
 
-    override fun register() {
+    override fun registerMediators() {
         feature1AndFeature2Mediator.registerAsParentCoordinator(this)
     }
 
