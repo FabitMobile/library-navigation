@@ -1,26 +1,26 @@
 package ru.fabit.navigation
 
-abstract class Mediator<ParentCoordinator : Coordinator<ParentAction>, ChildCoordinator : Coordinator<ChildAction>, ParentAction : Action, ChildAction : Action> {
+abstract class Mediator<ParentAction : Action, ChildAction : Action> {
 
-    private var parentCoordinator: ParentCoordinator? = null
-    private var childCoordinator: ChildCoordinator? = null
+    private var parentCoordinator: Coordinator<ParentAction>? = null
+    private var childCoordinator: Coordinator<ChildAction>? = null
 
     fun registerCoordinators(
-        parentCoordinator: ParentCoordinator,
-        childCoordinator: ChildCoordinator
+        parentCoordinator: Coordinator<ParentAction>,
+        childCoordinator: Coordinator<ChildAction>
     ) {
         this.parentCoordinator = parentCoordinator
         this.childCoordinator = childCoordinator
     }
 
     fun registerAsParentCoordinator(
-        parentCoordinator: ParentCoordinator
+        parentCoordinator: Coordinator<ParentAction>
     ) {
         this.parentCoordinator = parentCoordinator
     }
 
     fun registerAsChildCoordinator(
-        childCoordinator: ChildCoordinator
+        childCoordinator: Coordinator<ChildAction>
     ) {
         this.childCoordinator = childCoordinator
     }
