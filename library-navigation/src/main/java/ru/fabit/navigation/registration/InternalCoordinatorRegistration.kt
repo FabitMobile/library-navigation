@@ -5,7 +5,7 @@ import ru.fabit.navigation.Coordinator
 import ru.fabit.navigation.Mediator
 
 class InternalCoordinatorRegistration(
-    private vararg val mediatorAndCoordinator: Pair<Mediator<Coordinator<Action>, Coordinator<Action>, Action, Action>, Coordinator<Action>>,
+    private vararg val mediatorAndCoordinator: Pair<Mediator<Action, Action>, Coordinator<Action>>,
 ) : Registrar {
     override fun register() {
         mediatorAndCoordinator.forEach { (mediator, childCoordinator) ->

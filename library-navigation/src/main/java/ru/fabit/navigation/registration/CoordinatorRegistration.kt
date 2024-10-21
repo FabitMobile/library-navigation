@@ -8,7 +8,7 @@ class CoordinatorRegistration(
 ) : Registrar {
     override fun register() {
         coordinators.forEach {
-            it.register()
+            it.registerMediators()
         }
     }
 }
