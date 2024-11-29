@@ -56,8 +56,7 @@ class Feature2Coordinator(
 Mediator образует связь между двумя координаторами
 
 ```kotlin
-class Feature1AndFeature2Mediator :
-    Mediator<Feature1Coordinator, Feature2Coordinator, Feature1Action, Feature2Action>()
+class Feature1AndFeature2Mediator : Mediator<Feature1Action, Feature2Action>()
 ```
 
 Подписка на события для координаторов реализуется классами `CoordinatorRegistration`
